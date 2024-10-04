@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAZAR'S WEB FORM</title>
+
+    <!-- LINK TO EXTERNAL CSS --------------------------------------------------------------->
+    <link rel="stylesheet" href="./webform.css">
+</head>
+
+<body>
+    <!-- ACTUAL HTML CONTENT: --------------------------------------------------------------->
+    <div class="main-body">
+        <div class="background">
+
+            <h1 id="title">WELCOME</h1>
+            <div id="title-underline"></div>
+
+            <p id="description"></p>
+
+            <form id="survey-form" action="/action_page.php">
+
+                <label id="name-label" for="name">Name:</label><br>
+                <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+
+                <label id="email-label" for="email-label">Email:</label><br>
+                <input required type="email" id="email" name="email" placeholder="Enter your Email"><br>
+
+                <label id="number-label" for="age">Age:</label><br>
+                <input required type="number" id="age" name="age" min="18" max="80" placeholder="Enter your age"><br>
+
+                <label id="dropdown-label" for="dropdown">Select your role:</label><br>
+                <select name="dropdown" id="dropdown" placeholder="Developer">
+                    <option value="Developer">Developer</option>
+                    <option value="Product-owner">Product owner</option>
+                    <option value="Manager">Manager</option>
+                </select><br>
+
+                <label name="radio" id="radio-label"for="radio">Would you reccomend freecodecap to a friend?</label><br>
+                <input name="radio" id="recommend-camp-yes" type="radio" value="yes">
+                <label name="radio" id="radio-label" for="recommend-camp-yes">yes</label><br>
+                <input name="radio" id="recommend-camp-no" type="radio" value="no">
+                <label name="radio" id="radio-label" for="recommend-camp-no">no</label><br>
+
+                <label class="checkbox" id="checkbox-label-title">What would you like to see improved?</label><br>
+                <input class="checkbox" type="checkbox" id="backEndProjects" value="backEndProjects">
+                <label class="checkbox" for="backEndProjects"> Front end projects</label><br>
+                <input class="checkbox" type="checkbox" id="frontEndProjects" value="frontEndProjects">
+                <label class="checkbox" for="frontEndProjects"> Back end projects</label><br>
+                <input class="checkbox" type="checkbox" id="dataVisualization" value="dataVisualization">
+                <label class="checkbox" for="dataVisualization"> Data visualization</label><br>
+
+                <textarea id="commentary-area">Here you can write some extra commentary</textarea>
+
+                <div id="button-section">
+                    <input class="button" id="submit-button" type="submit" value="Submit">
+                    <div class="button" id="dark-mode-button" onclick="changePageToDarkMode()">Darkmode</div>
+                    <div class="button" id="visual-increase-button">Visual + </div>
+                </div>
+                
+            </form> 
+ 
+        </div>
+    </div>
+
+<script>
+
+    // MAIN SCRIPT CODE: ---------------------------------------------------------------------
+
+    function createIntroTextValue(componentId, content) {
+        document.getElementBy(componentId).textContent = content;
+    }
+
+    const paragraphText = `
+        This is a paragraph which is meant to serve as an explainer
+        for the general form and that helps illustrate what the form
+        is actually about. It would contain instruction as to what 
+        the user should do. 
+    `;
+    
+    createIntroTextValue('description', paragraphText);
+
+    function changePageToDarkMode() {
+        console.log("checking... "); 
+        document.getElementsByClassName('background').className = 'background-darkmode';
+    }
+
+    function changePageToVisuallyEnhancedMode() {
+
+    }
+
+
+
+    // ---------------------------------------------------------------------------------------
+
+    // FURTHER CODE CONCEPTS STATED BELOW: ---------------------------------------------------
+
+    // Working on returning a component with a reusable function that can standardise the output
+    // Yet this does seem on the other hand like design overkill...
+    // Might be better to just hardcode the html directly there in the actual body
+
+    function returnFormInputComponent(inputType, labelText, nameInput, idInput) {
+        return `
+            <label id="survey-form-label" for="name">${labelText}:</label><br>
+            <input type="text" id="name" name="name"><br>
+        `;
+    };
+
+    // ---------------------------------------------------------------------------------------
+    
+</script>
+</body>
+</html>

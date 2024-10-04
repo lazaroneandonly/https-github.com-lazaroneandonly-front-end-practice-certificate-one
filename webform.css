@@ -1,0 +1,161 @@
+/* STANDARD CSS */
+/* ---------------------------------------------------------------------------- */
+.main-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(43, 190, 187);
+    gap: 5%;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(140, 192, 196);
+    height: 95%;
+    width: 50%;
+    border-radius:3%;
+    align-items: center;
+}
+
+#title {
+    align-self: center;
+    color: white;
+    animation: title-loading 2s;
+}
+
+#title-underline {
+    background-color: white;
+    width: 70%;
+    height: 0.5%;
+    animation: title-underline-loading 2s;
+}
+
+#description {
+   color: white;
+   width: 70%;
+}
+
+#survey-form {
+    width: 70%;
+}
+
+label {
+    color: white;
+}
+
+#name,
+#email,
+#age,
+#dropdown {
+    width: 100%;
+    margin-bottom: 5%;
+    animation: title-underline-loading 2s;
+}
+
+#radio {
+    width: 100%;
+    margin-bottom: 5%
+}
+
+#commentary-area {
+    width: 100%;
+    height: 15%;
+    margin-top: 5%;
+}
+
+#recommend-camp-yes,
+#recommend-camp-no,
+#radio-label,
+.checkbox{
+    animation: fade-appear 2s;
+}
+
+#button-section {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    width: 100%;
+}
+
+#checkbox-label-title,
+#submit-button {
+    display: block;
+    margin-top: 5%;
+    animation: fade-appear 2s;
+}
+
+.button {
+    background-color: gray;
+    color: white;
+    margin-top: 5%;
+    width: 30%;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------------------- */
+
+
+
+
+/* DARKMODE CSS */
+/* ---------------------------------------------------------------------------- */
+.background-darkmode {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    height: 95%;
+    width: 50%;
+    border-radius:3%;
+    align-items: center;
+}
+/* ---------------------------------------------------------------------------- */
+
+
+
+/* ANIMATIONS CSS */
+/* ---------------------------------------------------------------------------- */
+@keyframes title-loading {
+
+    0% {
+        padding-right: 10%;
+        opacity: 0;
+    
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes title-underline-loading {
+
+    0% {
+        width: 0;
+    
+    }
+
+    100% {
+        width: 1;
+    }
+}
+
+@keyframes fade-appear {
+
+    0% {
+        opacity: 0;
+    
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+/* ---------------------------------------------------------------------------- */
