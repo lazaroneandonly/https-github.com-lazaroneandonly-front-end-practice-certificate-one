@@ -1,5 +1,9 @@
 /* STANDARD CSS */
 /* ---------------------------------------------------------------------------- */
+:host {
+    display: block;
+}
+
 .main-body {
     position: absolute;
     width: 100%;
@@ -16,7 +20,7 @@
     flex-direction: column;
     position: absolute;
     background-color: rgb(140, 192, 196);
-    height: 95%;
+    height: 100%;
     width: 50%;
     border-radius:3%;
     align-items: center;
@@ -42,10 +46,12 @@
 
 #survey-form {
     width: 70%;
+    height: 100%;
 }
 
 label {
     color: white;
+    transition: ease-in-out 0.5s;
 }
 
 #name,
@@ -80,10 +86,10 @@ label {
     flex-direction: row;
     gap: 5%;
     width: 100%;
+    height: fit-content;
 }
 
-#checkbox-label-title,
-#submit-button {
+#checkbox-label-title{
     display: block;
     margin-top: 5%;
     animation: fade-appear 2s;
@@ -92,18 +98,15 @@ label {
 .button {
     background-color: gray;
     color: white;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 30%;
     height: 30px;
     border: 1px solid black;
     text-align: center;
+    animation: fade-appear 2s;
 }
 
 /* ---------------------------------------------------------------------------- */
-
-
-
-
 /* DARKMODE CSS */
 /* ---------------------------------------------------------------------------- */
 .background-darkmode {
@@ -111,15 +114,69 @@ label {
     flex-direction: column;
     position: absolute;
     background-color: rgb(0, 0, 0);
-    height: 95%;
+    height: 100%;
     width: 50%;
     border-radius:3%;
     align-items: center;
+    animation: fade-appear 2s;
+    border: 1px solid rgb(255, 255, 255);
+    transition: ease-in-out 0.5s;
 }
+
+.main-body-darkmode {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(118, 0, 108);
+    gap: 5%;
+    transition: ease-in-out 0.5s;
+}
+
 /* ---------------------------------------------------------------------------- */
+/* ENHANCEDVIEW CSS */
+/* ---------------------------------------------------------------------------- */
+.description-enhanced {
+    width: 70%;
+    background-color: black;
+    font-size: x-large;
+    transition: ease-in-out 0.5s;
+}
 
+.label-enhanced {
+    color: rgb(0, 0, 0);
+    font-size: x-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    transition: ease-in-out 0.5s;
+    background: white;
+}
 
+.label-enhanced:hover {
+    background: white;
+    font-size: xx-large;
+}
 
+.input-enhanced {
+    color: rgb(0, 0, 0);
+    font-size: x-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    transition: ease-in-out 0.5s;
+}
+
+.main-body-enhanced {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(43, 190, 187);
+    gap: 5%;
+}  
+
+/* ---------------------------------------------------------------------------- */
 /* ANIMATIONS CSS */
 /* ---------------------------------------------------------------------------- */
 @keyframes title-loading {
