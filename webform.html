@@ -99,21 +99,22 @@
     // FUNCTIONS FOR CHANGING PAGE VIEW: -------------------------------------------------------
 
     function changeHtmlStyleElements(htmlElementGroup, previousHtmlElement, changedHtmlElement) {
-        htmlElementGroup.forEach(singleElement => {
+
+        htmlElementGroup.length ?  htmlElementGroup.forEach(singleElement => {
             singleElement.classList.replace(previousHtmlElement,changedHtmlElement)
-        });
-    }
+        }) : htmlElementGroup.classList.replace(previousHtmlElement,changedHtmlElement);
+    };
 
     function changePageToDarkMode() {
 
         darkmModeOn = !darkmModeOn; 
 
         if(darkmModeOn === true) {
-            background.classList.replace("background", "background-darkmode");
-            mainBody.classList.replace("main-body", "main-body-darkmode");
+            changeHtmlStyleElements(background, "background", "background-darkmode");
+            changeHtmlStyleElements(mainBody, "main-body", "main-body-darkmode");
         } else {
-            background.classList.replace("background-darkmode", "background");
-            mainBody.classList.replace("main-body-darkmode", "main-body");
+            changeHtmlStyleElements(background, "background-darkmode", "background");
+            changeHtmlStyleElements(mainBody, "main-body-darkmode", "main-body");
         };
     };
 
@@ -122,12 +123,12 @@
         enhancedViewOn = !enhancedViewOn;
 
         if(enhancedViewOn === true) {
-            mainBody.classList.replace("main-body", "main-body-enhanced");
-            description.classList.replace('description-standard', 'description-enhanced');
+            changeHtmlStyleElements(mainBody,'main-body', 'main-body-enhanced');
+            changeHtmlStyleElements(description, 'description-standard', 'description-enhanced');
             changeHtmlStyleElements(labels, 'label-standard', 'label-enhanced');
             changeHtmlStyleElements(inputs, 'input-standard', 'input-enhanced');
         } else {
-            description.classList.replace('description-enhanced', 'description-standard');
+            changeHtmlStyleElements(description, 'description-enhanced', 'description-standard');
             changeHtmlStyleElements(labels, 'label-enhanced', 'label-standard');
             changeHtmlStyleElements(inputs, 'input-enhanced', 'input-standard');
         };
