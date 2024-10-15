@@ -96,7 +96,10 @@
     
     createIntroTextValue('description', paragraphText);
 
+    // FUNCTIONS FOR CHANGING PAGE VIEW: -------------------------------------------------------
+
     function changePageToDarkMode() {
+
         darkmModeOn = !darkmModeOn; 
 
         if(darkmModeOn === true) {
@@ -108,31 +111,37 @@
         };
     };
 
+    // TODO: Place repetetiuve function elements in a reusable helper...
     function changePageToVisuallyEnhancedMode() {
+
         enhancedViewOn = !enhancedViewOn;
 
         if(enhancedViewOn === true) {
-            description.classList.replace('description-standard', 'description-enhanced');
 
+            description.classList.replace('description-standard', 'description-enhanced');
 
             labels.forEach(label => {
                 label.classList.replace('label-standard', 'label-enhanced');
                 mainBody.classList.replace("main-body", "main-body-enhanced");
             });
+
             inputs.forEach(input => {
                 input.classList.replace('input-standard', 'input-enhanced');
             });
+
         } else {
+
             description.classList.replace('description-enhanced', 'description-standard');
 
             labels.forEach(label => {
                 label.classList.replace('label-enhanced', 'label-standard');
                 mainBody.classList.replace("main-body-enhanced", "main-body");
             });
+
             inputs.forEach(input => {
                 input.classList.replace('input-enhanced', 'input-standard');
             });
-        }
+        };
     };
 
     // ---------------------------------------------------------------------------------------
