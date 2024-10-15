@@ -42,7 +42,7 @@
                 </select><br>
 
                 <!-- RECCOMEND TO FRIEND SECTION-->
-                <label name="radio" id="radio-label" for="radio" class="label-standard">Would you reccomend freecodecap to a friend?</label><br>
+                <label name="radio" id="radio-label" for="radio" class="label-standard">Would you reccomend freecodecamp to a friend?</label><br>
                 <input name="radio" id="recommend-camp-yes" type="radio" value="yes" class="input-standard">
                 <label name="radio" id="radio-label" for="recommend-camp-yes" class="label-standard">yes</label><br>
                 <input name="radio" id="recommend-camp-no" type="radio" value="no" class="input-standard">
@@ -112,7 +112,7 @@
         enhancedViewOn = !enhancedViewOn;
 
         if(enhancedViewOn === true) {
-            description.classList.replace('description-standard', 'description-enhanced')
+            description.classList.replace('description-standard', 'description-enhanced');
 
 
             labels.forEach(label => {
@@ -120,17 +120,17 @@
                 mainBody.classList.replace("main-body", "main-body-enhanced");
             });
             inputs.forEach(input => {
-                input.classList.replace('input-standard', 'input-enhanced')
+                input.classList.replace('input-standard', 'input-enhanced');
             });
         } else {
-            description.classList.replace('description-enhanced', 'description-standard')
+            description.classList.replace('description-enhanced', 'description-standard');
 
             labels.forEach(label => {
                 label.classList.replace('label-enhanced', 'label-standard');
                 mainBody.classList.replace("main-body-enhanced", "main-body");
             });
             inputs.forEach(input => {
-                input.classList.replace('input-enhanced', 'input-standard')
+                input.classList.replace('input-enhanced', 'input-standard');
             });
         }
     };
