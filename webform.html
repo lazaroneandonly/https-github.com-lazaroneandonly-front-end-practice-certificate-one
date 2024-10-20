@@ -16,7 +16,6 @@
 
             <h1 id="title">WELCOME</h1>
             <div id="title-underline"></div>
-
             <p id="description" class="description-standard"></p>
 
             <form id="survey-form" action="/action_page.php">
@@ -49,13 +48,13 @@
                 <label name="radio" id="radio-label" for="recommend-camp-no" class="label-standard">no</label><br>
 
                 <!-- IMPROVEMENTS SECTION-->
-                <label class="checkbox" id="checkbox-label-title" class="label-standard">What would you like to see improved?</label><br>
-                <input class="checkbox" type="checkbox" id="backEndProjects" value="backEndProjects" class="input-standard">
-                <label class="checkbox" for="backEndProjects" class="label-standard"> Front end projects</label><br>
-                <input class="checkbox" type="checkbox" id="frontEndProjects" value="frontEndProjects" class="input-standard">
-                <label class="checkbox" for="frontEndProjects" class="label-standard"> Back end projects</label><br>
-                <input class="checkbox" type="checkbox" id="dataVisualization" value="dataVisualization" class="input-standard">
-                <label class="checkbox" for="dataVisualization" class="label-standard"> Data visualization</label><br>
+                <label id="checkbox-label-title" class="label-standard">What would you like to see improved?</label><br>
+                <input type="checkbox" id="backEndProjects" value="backEndProjects">
+                <label for="backEndProjects" class="label-standard"> Front end projects</label><br>
+                <input type="checkbox" id="frontEndProjects" value="frontEndProjects">
+                <label for="frontEndProjects" class="label-standard"> Back end projects</label><br>
+                <input type="checkbox" id="dataVisualization" value="dataVisualization">
+                <label for="dataVisualization" class="label-standard"> Data visualization</label><br>
 
                 <!-- FEEDBACK SECTION-->
                 <textarea id="commentary-area">Here you can write some extra commentary</textarea>
@@ -72,69 +71,70 @@
     </div>
 <script>
 
-    // MAIN SCRIPT CODE: ---------------------------------------------------------------------
+// MAIN SCRIPT CODE FOR SELECTING ELEMENTS AND TEXT: ---------------------------------------
 
-    let darkmModeOn = false;
-    let enhancedViewOn = false;
+let darkmModeOn = false;
+let enhancedViewOn = false;
 
-    let mainBody = document.querySelector('.main-body');
-    let background = document.querySelector('.background');
-    let description = document.querySelector('p')
-    let labels = document.querySelectorAll('label');
-    let inputs = document.querySelectorAll('input');
+let mainBody = document.querySelector('.main-body');
+let background = document.querySelector('.background');
+let labels = document.querySelectorAll('label');
+let inputs = document.querySelectorAll('input');
 
-    function createIntroTextValue(componentId, content) {
-        document.getElementById(componentId).textContent = content;
+let description = document.querySelector('p')
+
+const paragraphText = `
+    This is a paragraph which is meant to serve as an explainer
+    for the general form. That helps illustrate what the form
+    is actually about. It would contain instructions that explain 
+    what the user should do. 
+`;
+
+function createIntroTextValue(componentId, content) {
+    document.getElementById(componentId).textContent = content;
+};
+createIntroTextValue('description', paragraphText);
+
+// FUNCTIONS FOR CHANGING PAGE VIEW: -------------------------------------------------------
+
+function changeHtmlStyleElements(htmlElementGroup, previousHtmlElement, changedHtmlElement) {
+
+    if(htmlElementGroup.length) {
+        htmlElementGroup.forEach(singleElement => {singleElement.classList.replace(
+        previousHtmlElement,changedHtmlElement
+        )}) 
+    } else {
+        htmlElementGroup.classList.replace(previousHtmlElement,changedHtmlElement)
     };
+};
 
-    const paragraphText = `
-        This is a paragraph which is meant to serve as an explainer
-        for the general form. That helps illustrate what the form
-        is actually about. It would contain instructions that explain 
-        what the user should do. 
-    `;
-    
-    createIntroTextValue('description', paragraphText);
+function changePageToDarkMode() {
+    darkmModeOn = !darkmModeOn; 
 
-    // FUNCTIONS FOR CHANGING PAGE VIEW: -------------------------------------------------------
+    if(darkmModeOn === true) {
+        changeHtmlStyleElements(background, "background", "background-darkmode");
+        changeHtmlStyleElements(mainBody, "main-body", "main-body-darkmode");
+    } else {
+        changeHtmlStyleElements(background, "background-darkmode", "background");
+        changeHtmlStyleElements(mainBody, "main-body-darkmode", "main-body");
+    };};
 
-    function changeHtmlStyleElements(htmlElementGroup, previousHtmlElement, changedHtmlElement) {
+function changePageToVisuallyEnhancedMode() {
+    enhancedViewOn = !enhancedViewOn;
 
-        htmlElementGroup.length ?  htmlElementGroup.forEach(singleElement => {
-            singleElement.classList.replace(previousHtmlElement,changedHtmlElement)
-        }) : htmlElementGroup.classList.replace(previousHtmlElement,changedHtmlElement);
+    if(enhancedViewOn === true) {
+        changeHtmlStyleElements(mainBody,'main-body', 'main-body-enhanced');
+        changeHtmlStyleElements(description, 'description-standard', 'description-enhanced');
+        changeHtmlStyleElements(labels, 'label-standard', 'label-enhanced');
+        changeHtmlStyleElements(inputs, 'input-standard', 'input-enhanced');
+    } else {
+        changeHtmlStyleElements(description, 'description-enhanced', 'description-standard');
+        changeHtmlStyleElements(labels, 'label-enhanced', 'label-standard');
+        changeHtmlStyleElements(inputs, 'input-enhanced', 'input-standard');
     };
+};
 
-    function changePageToDarkMode() {
-
-        darkmModeOn = !darkmModeOn; 
-
-        if(darkmModeOn === true) {
-            changeHtmlStyleElements(background, "background", "background-darkmode");
-            changeHtmlStyleElements(mainBody, "main-body", "main-body-darkmode");
-        } else {
-            changeHtmlStyleElements(background, "background-darkmode", "background");
-            changeHtmlStyleElements(mainBody, "main-body-darkmode", "main-body");
-        };
-    };
-
-    function changePageToVisuallyEnhancedMode() {
-
-        enhancedViewOn = !enhancedViewOn;
-
-        if(enhancedViewOn === true) {
-            changeHtmlStyleElements(mainBody,'main-body', 'main-body-enhanced');
-            changeHtmlStyleElements(description, 'description-standard', 'description-enhanced');
-            changeHtmlStyleElements(labels, 'label-standard', 'label-enhanced');
-            changeHtmlStyleElements(inputs, 'input-standard', 'input-enhanced');
-        } else {
-            changeHtmlStyleElements(description, 'description-enhanced', 'description-standard');
-            changeHtmlStyleElements(labels, 'label-enhanced', 'label-standard');
-            changeHtmlStyleElements(inputs, 'input-enhanced', 'input-standard');
-        };
-    };
-
-    // ---------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------
 
 </script>
 </body>
