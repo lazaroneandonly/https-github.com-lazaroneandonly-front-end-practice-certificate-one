@@ -57,13 +57,13 @@
                 <label for="dataVisualization" class="label-standard"> Data visualization</label><br>
 
                 <!-- FEEDBACK SECTION-->
-                <textarea id="commentary-area">Here you can write some extra commentary</textarea>
+                <textarea class="text-area" id="commentary-area">Here you can write some extra commentary</textarea>
 
                 <!-- BUTTONS SECTION-->
                 <div id="button-section">
-                    <input class="button" id="submit-button" type="submit" value="Submit">
-                    <div class="button" id="dark-mode-button" onclick="changePageToDarkMode()">Darkmode</div>
-                    <div class="button" id="visual-increase-button" onclick="changePageToVisuallyEnhancedMode()">Visual + </div>
+                    <input class="button-submit" id="submit-button" type="submit" value="Submit">
+                    <button class="button-darkMode" id="dark-mode-button" onclick="changePageToDarkMode()">Darkmode</button>
+                    <button class="button-visualEnhance" id="visual-increase-button" onclick="changePageToVisuallyEnhancedMode()">Visual + </button>
                 </div>
                 
             </form> 
@@ -80,14 +80,17 @@ let mainBody = document.querySelector('.main-body');
 let background = document.querySelector('.background');
 let labels = document.querySelectorAll('label');
 let inputs = document.querySelectorAll('input');
+let textFeedbackArea = document.querySelector('textarea');
+let buttonVisualEnhance = document.querySelector('.button-visualEnhance');
+let buttonDarkmode = document.querySelector('.button-darkMode');
 
 let description = document.querySelector('p')
 
 const paragraphText = `
-    This is a paragraph which is meant to serve as an explainer
-    for the general form. That helps illustrate what the form
-    is actually about. It would contain instructions that explain 
-    what the user should do. 
+    In this form you fill in order from TOP to BOTTOM your 
+    personal details such as your name, email, age and so on 
+    so we may have all the correct details to be sent to the
+    relevant place. Afterwards you will be notified when it is done.
 `;
 
 function createIntroTextValue(componentId, content) {
@@ -102,7 +105,7 @@ function changeHtmlStyleElements(htmlElementGroup, previousHtmlElement, changedH
     if(htmlElementGroup.length) {
         htmlElementGroup.forEach(singleElement => {singleElement.classList.replace(
         previousHtmlElement,changedHtmlElement
-        )}) 
+        )})
     } else {
         htmlElementGroup.classList.replace(previousHtmlElement,changedHtmlElement)
     };
@@ -114,23 +117,28 @@ function changePageToDarkMode() {
     if(darkmModeOn === true) {
         changeHtmlStyleElements(background, "background", "background-darkmode");
         changeHtmlStyleElements(mainBody, "main-body", "main-body-darkmode");
+        changeHtmlStyleElements(buttonDarkmode, 'button-darkMode', 'button-darkMode-enhanced');
     } else {
         changeHtmlStyleElements(background, "background-darkmode", "background");
         changeHtmlStyleElements(mainBody, "main-body-darkmode", "main-body");
+        changeHtmlStyleElements(buttonDarkmode, 'button-darkMode-enhanced', 'button-darkMode');
     };};
 
 function changePageToVisuallyEnhancedMode() {
     enhancedViewOn = !enhancedViewOn;
 
     if(enhancedViewOn === true) {
-        changeHtmlStyleElements(mainBody,'main-body', 'main-body-enhanced');
         changeHtmlStyleElements(description, 'description-standard', 'description-enhanced');
         changeHtmlStyleElements(labels, 'label-standard', 'label-enhanced');
         changeHtmlStyleElements(inputs, 'input-standard', 'input-enhanced');
+        changeHtmlStyleElements(textFeedbackArea, 'text-area', 'text-area-enhanced');
+        changeHtmlStyleElements(buttonVisualEnhance, 'button-visualEnhance', 'button-visualEnhance-enhanced');
     } else {
         changeHtmlStyleElements(description, 'description-enhanced', 'description-standard');
         changeHtmlStyleElements(labels, 'label-enhanced', 'label-standard');
         changeHtmlStyleElements(inputs, 'input-enhanced', 'input-standard');
+        changeHtmlStyleElements(textFeedbackArea, 'text-area-enhanced', 'text-area');
+        changeHtmlStyleElements(buttonVisualEnhance, 'button-visualEnhance-enhanced', 'button-visualEnhance');
     };
 };
 
