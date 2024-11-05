@@ -14,7 +14,7 @@
     <div class="main-body">
         <div class="background">
 
-            <h1 id="title">WELCOME</h1>
+            <h1 id="title">WELCOME TO THE FORM</h1>
             <div id="title-underline"></div>
             <p id="description" class="description-standard"></p>
 
@@ -35,9 +35,11 @@
                 <!-- PROFESSION SECTION-->
                 <label id="dropdown-label" for="dropdown" class="label-standard">Select your role:</label><br>
                 <select name="dropdown" id="dropdown" placeholder="Developer">
-                    <option value="Developer">Developer</option>
-                    <option value="Product-owner">Product owner</option>
-                    <option value="Manager">Manager</option>
+                    <optgroup>
+                        <option value="Developer">Developer</option>
+                        <option value="Product-owner">Product owner</option>
+                        <option value="Manager">Manager</option>
+                    </optgroup>
                 </select><br>
 
                 <!-- RECCOMEND TO FRIEND SECTION-->
@@ -106,9 +108,7 @@ function changeHtmlStyleElements(htmlElementGroup, previousHtmlElement, changedH
         htmlElementGroup.forEach(singleElement => {singleElement.classList.replace(
         previousHtmlElement,changedHtmlElement
         )})
-    } else {
-        htmlElementGroup.classList.replace(previousHtmlElement,changedHtmlElement)
-    };
+    } else {htmlElementGroup.classList.replace(previousHtmlElement,changedHtmlElement)};
 };
 
 function changePageToDarkMode() {

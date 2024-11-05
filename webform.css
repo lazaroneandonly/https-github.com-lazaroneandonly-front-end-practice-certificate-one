@@ -45,6 +45,10 @@
    width: 70%;
 }
 
+optgroup {
+    font-size: 800px;
+}
+
 #survey-form {
     width: 70%;
     height: 100%;
@@ -106,6 +110,7 @@ label {
     height: 30px;
     border: 1px solid black;
     text-align: center;
+    transition: ease-in-out 0.5s;
     animation: fade-appear 2s;
 }
 
@@ -115,7 +120,7 @@ label {
 .button-darkMode:hover, 
 .button-submit:hover{
     background-color: rgb(0, 192, 70);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     width: 40%;
     margin-top: 2%;
     border: 1px solid black;
@@ -182,40 +187,20 @@ label {
 /* ---------------------------------------------------------------------------- */
 /* ANIMATIONS CSS */
 /* ---------------------------------------------------------------------------- */
+
 @keyframes title-loading {
-
-    0% {
-        padding-right: 10%;
-        opacity: 0;
-    
-    }
-
-    100% {
-        opacity: 1;
-    }
+    0% { padding-right: 10%; opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @keyframes title-underline-loading {
-
-    0% {
-        width: 0;
-    
-    }
-
-    100% {
-        width: 1;
-    }
+    0% { width: 0; }
+    100% { width: 1; }
 }
 
 @keyframes fade-appear {
-
-    0% {
-        opacity: 0;
-    
-    }
-
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0;}
+    100% { opacity: 1; }
 }
+
 /* ---------------------------------------------------------------------------- */

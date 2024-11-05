@@ -3,6 +3,8 @@
 ## Summary: 
 **This project is meant to be a submisison for the FREECODECAMP certificate for froint end development.While Many could say that the design represented here is an overkill, I found it compelling to go above and beyond the required standard, even for such a simple task as this. I find that in this way I am able to develop further my skills as a front end programmer and go into avenues and patterns of thought that I rarely went into before.** 
 
+## Use:
+
 ## Relevant links:
 - https://survey-form.freecodecamp.rocks
 - Link to WCAG:  https://www.w3.org/TR/WCAG20/#intro-layers-guidance
@@ -40,10 +42,10 @@
 
 - [x] More animative css styles that give a more fluid and relaxing user experience.
 - [x] A darkmode option that is toggable.
-- [ ] A "READ_PLUS" option whcih changes the text and css layout in a way that suits people with sight and visual imparements.
+- [ ] A "visual +" option whcih changes the text and css layout in a way that suits people with sight and visual imparements, in accordance with WCAG standard
 
 ## Additional concept:
-**Another idea that I had for the standardisationa nd compartmentalisaiton of the code is to have a reusable function pattern design similar to the **
+**Another idea that I had for the standardisationa nd compartmentalisaiton of the code is to have a reusable function pattern design similar to the "Atomic Design" model**
 
 ## Noting a design improvement case:
 **Another idea that I had for the standardisationa nd compartmentalisaiton of the code is to have a reusable function pattern design.I I have noticed that a lot of these patterns seem to follow the same structure of:**
